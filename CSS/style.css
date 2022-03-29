@@ -1,0 +1,243 @@
+
+*{
+    margin:0;
+    padding:0;
+    font-family: 'Poppins','Trebuchet MS';
+}    
+
+#header{
+    height: 100vh;
+    background-image: url("back.png");
+    background-position: center;
+    background-size:cover;
+   
+}
+a{
+    color: white;
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: none;
+    text-shadow: #777 ;
+   
+  }
+
+.container{
+    margin-right: 100px;
+    margin-left:100px
+}
+.logo{
+    margin-top: 30px;
+    width:200px;
+}
+.header-text{
+    max-width:350px;
+    margin-top:140px;
+
+}
+
+.square{
+    height:12px;
+    width: 12px;
+    display:inline-block;
+    background-color: rgb(129, 178, 243);
+    margin: 15px 0;
+}
+.common{
+    padding:18px 14px;
+    background: transparent;
+    outline:none;
+    border: 2px solid rgb(129, 178, 243);
+    font-weight: bold;
+}
+p{
+    font-size:20px;
+    line-height: 18px;
+    color: #777;
+
+}
+
+.header-text button{
+    margin-top:20px;
+    margin-bottom: 60px;
+
+}
+
+#side{
+    width : 250px;
+    height : 100vh;
+    position:fixed;
+    right: -250;
+    top: 0;
+    background:#f67c92;
+    z-index: 2;
+    transition: 0.5s;
+    text-decoration: none;
+
+}
+nav ul li{
+    list-style: none;
+    margin: 50px 20px;
+
+}
+nav ul li{
+    text-decoration: none;
+    color:white;
+}
+#menubtn{
+    width:50px;
+    position: fixed;
+    right:65px;
+    top:35px;
+    z-index: 2;
+    cursor: pointer;
+
+}
+
+#services{
+    width:80%;
+    margin:auto;
+    text-align:center;
+    padding:100px;
+    box-shadow: rgb(129, 178, 243);
+
+
+}
+h1{
+    font-size:36px;
+    font-weight: 600;
+}
+p{
+    font-size:18px;
+    font-weight: 300;
+    line-height: 20px;
+    padding:10px;
+    
+}
+.row{
+    margin-top:5%;
+    display:flex;
+    justify-content:space-between;
+
+}
+.service-col{
+    flex-basis:31%;
+    background:#f67c92a4;
+    border-radius:10px;
+    margin-bottom:5%;
+    padding:20px 12px;
+    box-sizing:border-box;
+    box-shadow: rgb(129, 178, 243);
+    
+}
+.service-btn{
+    margin:80px auto 0;
+    display:flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+
+#counsel{
+    padding:100px 0;
+    display:flex;
+    align-items: center;
+    flex-wrap:wrap;
+
+}
+
+.counsel-left-col{
+    flex-basis:50%;
+
+}
+.counsel-left-col img{
+    width:80%;
+    margin-left: 12%;
+}
+.counsel-right-col{
+    flex-basis: 50%;
+}
+
+
+#footer{
+    padding:50px 0 30px;
+
+}
+hr{
+    width:100%;
+    border:0;
+    border-top:1px solid rgb(129, 178, 243);
+
+}
+
+.footer-row{
+    display:flex;
+    align-items: center;
+    justify-content:space-between;
+    flex-wrap:wrap;
+}
+.footer-right-col{
+    flex-basis:50%;
+    margin-top:60px;
+
+}
+.footer-left-col{
+    flex-basis: 35%;
+}
+
+.footer-links{
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+}
+
+.link-title h4{
+    color:#f67c92;
+    margin-bottom:20px;
+
+}
+.link-title small{
+    font-size: 13px;
+    color:#777;
+
+}
+
+.footer-info{
+    display:flex;
+    align-items: center;
+    justify-content:flex-end;
+    flex-wrap:wrap;
+}
+
+.footer-logo img{
+    width:100px;
+
+
+}
+.footer-logo button{
+    padding:12px 38px;
+    margin-top:20px;
+    font-size:10px;
+
+}
+
+.copyright,.footer-logo{
+    flex-basis: 40%;
+
+}
+.socialicon{
+    width: 50px;
+    position: fixed;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    z-index: 1;
+
+}
+
+.socialicon img{
+    display: block;
+    width: 20px;
+    margin:0 auto 20px;
+    cursor:pointer;
+}
