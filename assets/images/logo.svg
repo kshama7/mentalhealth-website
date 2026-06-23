@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" aria-hidden="true">
+  <defs>
+    <linearGradient id="hp-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#e36b85"/>
+      <stop offset="100%" stop-color="#b94862"/>
+    </linearGradient>
+  </defs>
+  <rect width="40" height="40" rx="10" fill="url(#hp-bg)"/>
+  <path
+    d="M20 30 C 14 26, 11 22, 11 17 C 11 13.5, 13.5 11, 16.5 11 C 18.5 11, 20 12.5, 20 12.5 C 20 12.5, 21.5 11, 23.5 11 C 26.5 11, 29 13.5, 29 17 C 29 22, 26 26, 20 30 Z"
+    fill="#ffffff"
+  />
+</svg>

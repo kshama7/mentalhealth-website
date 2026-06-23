@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="assets/images/logo.jpg" alt="Happy Pill logo" width="120" />
+<img src="assets/images/logo.svg" alt="Happy Pill logo" width="80" />
 
 # Happy Pill
 
