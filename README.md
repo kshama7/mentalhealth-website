@@ -1,35 +1,116 @@
-Mental Health Website
+<div align="center">
 
-A user-friendly and professional website which provides accurate information about mental health. 
-We provide a login and signup interface which logs the customer’s details into the database. It has a menu which can take you to the multiple pages on our website (home, about, counselors, login, account).
-It lets people know the contact info of our mental health specialists who can help them with whatever they need. The user  can logout. The user can update login info as well.
+# Happy Pill
 
-The website is built using HTML, CSS, PHP and Xampp control panel for MySQL.
+**Online counselling therapy for the South Asian community — anytime, anywhere.**
 
+A modern, responsive marketing & booking site for an online mental health platform.
+Originally built as a college project on XAMPP/PHP — rewritten into a production-ready static site.
 
-How it looks:
-Home:
-<img width="960" alt="home1" src="https://user-images.githubusercontent.com/75107843/203598054-a0b7703d-8903-4582-9f9a-db0b01ac40d8.png">
-<img width="959" alt="home2" src="https://user-images.githubusercontent.com/75107843/203598151-dc5fe5d6-fd8b-4b50-ae63-80cb3a2050ac.png">
-<img width="958" alt="home3" src="https://user-images.githubusercontent.com/75107843/203598236-ad6cb55e-0639-40da-9231-2c0391c32c47.png">
+[![GitHub Pages](https://img.shields.io/badge/demo-live-2f9e6b?style=flat-square)](https://kshama7.github.io/mentalhealth-website/)
+[![Built with HTML5 + CSS3 + JS](https://img.shields.io/badge/built%20with-HTML5%20%C2%B7%20CSS3%20%C2%B7%20JS-e36b85?style=flat-square)](#tech-stack)
+[![License: MIT](https://img.shields.io/badge/license-MIT-1f1d2b?style=flat-square)](LICENSE)
 
-Navbar:
-<img width="960" alt="navbar" src="https://user-images.githubusercontent.com/75107843/203598397-78a2df53-1681-4c59-997a-c2ab6ab3b891.png">
+[**Live demo →**](https://kshama7.github.io/mentalhealth-website/)
 
-About:
-<img width="959" alt="about1" src="https://user-images.githubusercontent.com/75107843/203598494-1b909e15-32c7-46a8-9de8-df2247fe9b35.png">
-<img width="960" alt="about2" src="https://user-images.githubusercontent.com/75107843/203598546-da6e2851-65fb-4888-97f0-02f0c3552013.png">
+</div>
 
-Book counselors:
-<img width="959" alt="couns1" src="https://user-images.githubusercontent.com/75107843/203598682-0e391b42-acd4-438f-96c4-6809e17c2133.png">
-<img width="960" alt="couns2" src="https://user-images.githubusercontent.com/75107843/203598724-ce22abea-bcc0-4c55-a7cf-d505b84546f4.png">
+---
 
-Login:
-<img width="959" alt="login" src="https://user-images.githubusercontent.com/75107843/203598801-8e6a4771-f82a-4c94-97f1-765c793d1274.png">
+## ✨ Highlights
 
-Registration:
-<img width="960" alt="registration" src="https://user-images.githubusercontent.com/75107843/203598852-b6daf79d-45b9-447e-9dda-fadb00d3ef41.png">
+- **Calm, accessible design** — soft palette, generous whitespace, semantic HTML, keyboard-navigable, respects `prefers-reduced-motion`.
+- **Fully responsive** — mobile-first layout with a sticky blurred navbar and hamburger menu under 768 px.
+- **Six pages, one shared design system** — home, about, counsellors, sign in, sign up, and account, all powered by a single CSS file driven by CSS variables.
+- **Demo authentication** — sign-up, sign-in, profile edit, and sign-out using `localStorage`, so the original auth feature works on a static host without a backend.
+- **Zero build step** — no bundler, no framework, no dependencies. Drop it on any static host (GitHub Pages, Netlify, Vercel, S3).
 
-Account:
-<img width="950" alt="account" src="https://user-images.githubusercontent.com/75107843/203598950-20be0c80-132f-422f-8e4f-a33e0bfca506.png">
+## 🗂️ Pages
 
+| Page | File | What's on it |
+| --- | --- | --- |
+| Home | `index.html` | Hero, "how it works" services, split feature, CTA banner |
+| About | `about.html` | Brand story, values, what you can talk about |
+| Counsellors | `counselors.html` | Counsellor cards with specialisations and booking CTA |
+| Sign in | `login.html` | Email + password sign-in (demo, client-side) |
+| Sign up | `signup.html` | Account creation (demo, client-side) |
+| Account | `account.html` | View profile, edit name/email/password, sign out |
+
+## 🧰 Tech stack
+
+- **HTML5** — semantic landmarks (`<header>`, `<main>`, `<section>`, `<article>`, `<footer>`), `aria-*` attributes, and meta tags for SEO / theme colour.
+- **CSS3** — custom properties, fluid type with `clamp()`, CSS Grid, Flexbox, `backdrop-filter`, accessible focus rings.
+- **Vanilla JavaScript** — no framework. Mobile nav, scroll state, active-link highlighting, and a tiny demo `Auth` module backed by `localStorage`.
+- **Google Fonts** — Plus Jakarta Sans.
+
+## 📁 Project structure
+
+```
+mentalhealth-website/
+├── index.html
+├── about.html
+├── counselors.html
+├── login.html
+├── signup.html
+├── account.html
+├── assets/
+│   ├── css/
+│   │   └── styles.css
+│   ├── js/
+│   │   └── main.js
+│   └── images/
+│       ├── logo.jpg
+│       ├── comforting.jpg
+│       ├── counsel-illustration.png
+│       ├── about-illustration.jpg
+│       ├── therapist-1.jpg … therapist-3.jpg
+│       └── facebook.png · instagram.png · twitter.png · linkedin.png
+├── LICENSE
+└── README.md
+```
+
+## 🚀 Run locally
+
+No build tools required — any static server works:
+
+```bash
+# clone
+git clone https://github.com/kshama7/mentalhealth-website.git
+cd mentalhealth-website
+
+# pick one
+python3 -m http.server 8000
+# or
+npx serve .
+```
+
+Then visit <http://localhost:8000>.
+
+## 🌐 Deploy
+
+Hosted on **GitHub Pages** straight from `main`.
+
+To enable it on a fork:
+
+1. Go to **Settings → Pages**.
+2. Under "Build and deployment", choose **Deploy from a branch**.
+3. Branch: `main`, folder: `/ (root)`.
+4. Your site goes live at `https://<your-username>.github.io/mentalhealth-website/`.
+
+## 🔒 A note on the demo authentication
+
+The sign-up / sign-in flow is **client-side only**. Accounts live in your browser's `localStorage`, and passwords are run through a tiny non-cryptographic hash for display purposes. This is deliberate — it lets the site demonstrate the original auth feature without a server, but it is **not real authentication** and should never ship to production.
+
+The original college version used PHP + MySQL on XAMPP. To restore real auth, swap the `Auth` module in `assets/js/main.js` for `fetch()` calls against a real backend (Node/Express, PHP, or a BaaS like Supabase / Firebase).
+
+## 📜 History
+
+This project started as a college assignment in 2021 — a XAMPP/PHP/MySQL site with three pages and a registration form. The 2026 rewrite kept the brand and core concept and rebuilt everything else:
+
+- ❌ Removed PHP backend, XAMPP dependency, hardcoded `localhost` URLs.
+- ✅ Modern responsive layout, design system, accessibility, sticky nav, smooth animations.
+- ✅ Auth concept preserved as a client-side demo so the site stands on its own.
+
+## 📄 License
+
+MIT © Kshama Bhatt. See [LICENSE](LICENSE).

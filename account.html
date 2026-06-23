@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Your Happy Pill account." />
+  <meta name="theme-color" content="#fdfaf7" />
+  <title>Account — Happy Pill</title>
+
+  <link rel="icon" href="assets/images/logo.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="container nav-inner">
+      <a class="nav-brand" href="index.html">
+        <img src="assets/images/logo.jpg" alt="" />
+        <span>Happy Pill</span>
+      </a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Toggle menu">
+        <span></span>
+      </button>
+      <ul class="nav-links" id="primary-nav">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="counselors.html">Counsellors</a></li>
+        <li data-when-signed-out><a href="login.html">Sign in</a></li>
+        <li data-when-signed-in><a href="account.html">Account</a></li>
+        <li class="nav-cta" data-when-signed-out><a class="btn btn-primary" href="signup.html">Get started</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main class="container account-shell">
+
+    <div id="signed-out" class="auth-card hidden" style="margin-inline: auto;">
+      <h1>You're signed out</h1>
+      <p class="lead">Sign in or create an account to see your details.</p>
+      <div style="display:flex; gap: 0.75rem;">
+        <a class="btn btn-primary btn-block" href="login.html">Sign in</a>
+        <a class="btn btn-secondary btn-block" href="signup.html">Sign up</a>
+      </div>
+    </div>
+
+    <section id="signed-in" class="account-card hidden">
+      <span class="eyebrow">Your account</span>
+      <h1 id="welcome" style="font-size: 1.75rem; margin-bottom: 1.5rem;">Welcome back</h1>
+
+      <div id="view-mode">
+        <div class="account-row">
+          <strong>Name</strong>
+          <span id="display-name"></span>
+        </div>
+        <div class="account-row">
+          <strong>Email</strong>
+          <span id="display-email"></span>
+        </div>
+        <div class="account-actions">
+          <button class="btn btn-primary" id="edit-btn">Edit profile</button>
+          <button class="btn btn-secondary" id="logout-btn">Sign out</button>
+        </div>
+      </div>
+
+      <form id="edit-form" class="hidden" novalidate>
+        <div id="edit-error" class="form-error hidden" role="alert"></div>
+        <div id="edit-success" class="form-success hidden" role="status">Profile updated.</div>
+
+        <div class="form-row">
+          <label for="name">Full name</label>
+          <input id="name" name="name" type="text" required minlength="2" />
+        </div>
+        <div class="form-row">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" required />
+        </div>
+        <div class="form-row">
+          <label for="password">New password <span style="color: var(--color-text-muted); font-weight: 400;">(leave blank to keep current)</span></label>
+          <input id="password" name="password" type="password" autocomplete="new-password" minlength="6" />
+        </div>
+
+        <div class="account-actions">
+          <button class="btn btn-primary" type="submit">Save changes</button>
+          <button class="btn btn-secondary" type="button" id="cancel-btn">Cancel</button>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <span>© <span data-year></span> Happy Pill. Built with care.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+  <script>
+    const signedIn = document.getElementById("signed-in");
+    const signedOut = document.getElementById("signed-out");
+    const viewMode = document.getElementById("view-mode");
+    const editForm = document.getElementById("edit-form");
+
+    function render() {
+      const session = Auth.current();
+      if (!session) {
+        signedIn.classList.add("hidden");
+        signedOut.classList.remove("hidden");
+        return;
+      }
+      signedOut.classList.add("hidden");
+      signedIn.classList.remove("hidden");
+
+      document.getElementById("welcome").textContent = `Welcome, ${session.name}`;
+      document.getElementById("display-name").textContent = session.name;
+      document.getElementById("display-email").textContent = session.email;
+
+      document.getElementById("name").value = session.name;
+      document.getElementById("email").value = session.email;
+      document.getElementById("password").value = "";
+    }
+    render();
+
+    document.getElementById("edit-btn").addEventListener("click", () => {
+      viewMode.classList.add("hidden");
+      editForm.classList.remove("hidden");
+      document.getElementById("edit-error").classList.add("hidden");
+      document.getElementById("edit-success").classList.add("hidden");
+    });
+
+    document.getElementById("cancel-btn").addEventListener("click", () => {
+      editForm.classList.add("hidden");
+      viewMode.classList.remove("hidden");
+      render();
+    });
+
+    document.getElementById("logout-btn").addEventListener("click", () => {
+      Auth.logout();
+      location.href = "index.html";
+    });
+
+    editForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const err = document.getElementById("edit-error");
+      const ok = document.getElementById("edit-success");
+      err.classList.add("hidden");
+      ok.classList.add("hidden");
+
+      const fd = new FormData(editForm);
+      try {
+        Auth.update({
+          name: String(fd.get("name") || ""),
+          email: String(fd.get("email") || ""),
+          password: String(fd.get("password") || ""),
+        });
+        ok.classList.remove("hidden");
+        render();
+        setTimeout(() => {
+          editForm.classList.add("hidden");
+          viewMode.classList.remove("hidden");
+        }, 800);
+      } catch (e) {
+        err.textContent = e.message;
+        err.classList.remove("hidden");
+      }
+    });
+  </script>
+</body>
+</html>

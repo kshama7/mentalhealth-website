@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Sign in to Happy Pill." />
+  <meta name="theme-color" content="#fdfaf7" />
+  <title>Sign in — Happy Pill</title>
+
+  <link rel="icon" href="assets/images/logo.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="container nav-inner">
+      <a class="nav-brand" href="index.html">
+        <img src="assets/images/logo.jpg" alt="" />
+        <span>Happy Pill</span>
+      </a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Toggle menu">
+        <span></span>
+      </button>
+      <ul class="nav-links" id="primary-nav">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="counselors.html">Counsellors</a></li>
+        <li data-when-signed-out><a href="login.html">Sign in</a></li>
+        <li data-when-signed-in><a href="account.html">Account</a></li>
+        <li class="nav-cta" data-when-signed-out><a class="btn btn-primary" href="signup.html">Get started</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main class="container auth-shell">
+    <section class="auth-card">
+      <h1>Welcome back</h1>
+      <p class="lead">Sign in to book sessions and manage your account.</p>
+
+      <div class="auth-demo-notice">
+        <strong>Demo:</strong>&nbsp;accounts are stored in your browser only. No data leaves your device.
+      </div>
+
+      <div id="error" class="form-error hidden" role="alert"></div>
+
+      <form id="login-form" novalidate>
+        <div class="form-row">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" autocomplete="email" required />
+        </div>
+        <div class="form-row">
+          <label for="password">Password</label>
+          <input id="password" name="password" type="password" autocomplete="current-password" required minlength="6" />
+        </div>
+        <button class="btn btn-primary btn-block" type="submit">Sign in</button>
+      </form>
+
+      <p class="auth-footer">
+        New to Happy Pill? <a href="signup.html">Create an account</a>
+      </p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <span>© <span data-year></span> Happy Pill. Built with care.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+  <script>
+    const form = document.getElementById("login-form");
+    const errorBox = document.getElementById("error");
+
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      errorBox.classList.add("hidden");
+      const fd = new FormData(form);
+      try {
+        Auth.login({
+          email: String(fd.get("email") || ""),
+          password: String(fd.get("password") || ""),
+        });
+        location.href = "account.html";
+      } catch (err) {
+        errorBox.textContent = err.message;
+        errorBox.classList.remove("hidden");
+      }
+    });
+  </script>
+</body>
+</html>
