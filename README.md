@@ -1,17 +1,8 @@
 <div align="center">
 
+<img src="assets/images/logo.jpg" alt="Happy Pill logo" width="120" />
+
 # Happy Pill
-
-**Online counselling therapy for the South Asian community — anytime, anywhere.**
-
-A modern, responsive marketing & booking site for an online mental health platform.
-Originally built as a college project on XAMPP/PHP — rewritten into a production-ready static site.
-
-[![GitHub Pages](https://img.shields.io/badge/demo-live-2f9e6b?style=flat-square)](https://kshama7.github.io/mentalhealth-website/)
-[![Built with HTML5 + CSS3 + JS](https://img.shields.io/badge/built%20with-HTML5%20%C2%B7%20CSS3%20%C2%B7%20JS-e36b85?style=flat-square)](#tech-stack)
-[![License: MIT](https://img.shields.io/badge/license-MIT-1f1d2b?style=flat-square)](LICENSE)
-
-[**Live demo →**](https://kshama7.github.io/mentalhealth-website/)
 
 </div>
 
