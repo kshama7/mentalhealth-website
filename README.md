@@ -4,6 +4,8 @@
 
 # Happy Pill
 
+[**Live demo →**](https://kshama7.github.io/mentalhealth-website/)
+
 </div>
 
 ---
